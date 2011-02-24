@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * @see http://code.google.com/p/php-imap
+ * @author Barbushin Sergey http://linkedin.com/in/barbushin
+ *
+ */
 class ImapMailbox {
 
 	protected $imapPath;
