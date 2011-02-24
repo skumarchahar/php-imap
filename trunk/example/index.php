@@ -3,8 +3,8 @@
 require_once('d:\server\home\manager\application\MailReceiver\ImapMailbox.php');
 
 // IMAP must be enabled in Google Mail Settings
-define('GMAIL_EMAIL', 'barbushin@gmail.com');
-define('GMAIL_PASSWORD', 'tgbhotw123123');
+define('GMAIL_EMAIL', 'some@gmail.com');
+define('GMAIL_PASSWORD', 'somepassword');
 define('ATTACHMENTS_DIR', dirname(__FILE__) . '/attachments');
 
 $mailbox = new ImapMailbox('{imap.gmail.com:993/imap/novalidate-cert/ssl}INBOX', GMAIL_EMAIL, GMAIL_PASSWORD, ATTACHMENTS_DIR, 'utf-8');
