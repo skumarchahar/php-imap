@@ -1,6 +1,6 @@
 <?php
 
-require_once('d:\server\home\manager\application\MailReceiver\ImapMailbox.php');
+require_once('../ImapMailbox.php');
 
 // IMAP must be enabled in Google Mail Settings
 define('GMAIL_EMAIL', 'some@gmail.com');
