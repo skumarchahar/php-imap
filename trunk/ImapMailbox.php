@@ -169,8 +169,8 @@ class ImapMailbox {
 				$params[strtolower($param->attribute)] = $param->value;
 			}
 		}
-		if(!empty($params['charset']) && @mb_encoding_aliases($params['charset'])) {
-			$data = mb_convert_encoding($data, $this->serverEncoding, $params['charset']);
+		if(!empty($params['charset'])) {
+			$data = iconv($params['charset'], $this->serverEncoding, $data);
 		}
 
 		// attachments
