@@ -10,10 +10,11 @@ define('ATTACHMENTS_DIR', dirname(__FILE__) . '/attachments');
 $mailbox = new ImapMailbox('{imap.gmail.com:993/imap/novalidate-cert/ssl}INBOX', GMAIL_EMAIL, GMAIL_PASSWORD, ATTACHMENTS_DIR, 'utf-8');
 $mails = array();
 
-foreach($mailbox->searchMails('ALL') as $mailId) {
+// Display all e-mail
+foreach($mailbox->searchMailBox('ALL') as $mailId) {
 	$mail = $mailbox->getMail($mailId);
-	// $mailbox->setMailAsSeen($mail->mId);
-	// $mailbox->deleteMail($mail->mId);
+	// $mailbox->setMailAsSeen($mail->id);
+	// $mailbox->deleteMail($mail->id);
 	$mails[] = $mail;
 }
 
