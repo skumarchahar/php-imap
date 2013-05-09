@@ -34,7 +34,7 @@ class ImapMailbox {
 	public function getImapStream($forceConnection = true) {
 		static $imapStream;
 		if($forceConnection) {
-			if($imapStream && !imap_ping($imapStream)) {
+			if($imapStream && (!is_resource($imapStream) || !imap_ping($imapStream))) {
 				$this->disconnect();
 				$imapStream = null;
 			}
@@ -55,9 +55,8 @@ class ImapMailbox {
 
 	protected function disconnect() {
 		$imapStream = $this->getImapStream(false);
-		if($imapStream) {
-			$this->expungeDeletedMails();
-			imap_close($imapStream);
+		if($imapStream && is_resource($imapStream)) {
+			imap_close($imapStream, CL_EXPUNGE);
 		}
 	}
 
